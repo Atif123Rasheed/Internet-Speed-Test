@@ -64,6 +64,8 @@ public class DailyDataFragment extends Fragment {
 	 * The Month data.
 	 */
 	List<DataInfo> monthData;
+
+
 	/**
 	 * The Root view.
 	 */
@@ -101,7 +103,7 @@ public class DailyDataFragment extends Fragment {
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvDate.getPaint ().setShader (textShader);
@@ -112,7 +114,7 @@ public class DailyDataFragment extends Fragment {
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvPing.getPaint ().setShader (textShader);
@@ -123,7 +125,7 @@ public class DailyDataFragment extends Fragment {
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvDownload.getPaint ().setShader (textShader);
@@ -134,7 +136,7 @@ public class DailyDataFragment extends Fragment {
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvUpload.getPaint ().setShader (textShader);

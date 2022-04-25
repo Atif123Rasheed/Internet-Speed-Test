@@ -41,22 +41,22 @@ public class SettingFragment extends Fragment {
 	private RadioButton rbkBps;
 	private RadioButton rbMbps;
 	private RadioButton rbkbps;
-	private FrameLayout fLAds;
+//	private FrameLayout fLAds;
 
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container,
 	                          Bundle savedInstanceState) {
 		View rootView = inflater.inflate (R.layout.fragment_setting, container, false);
-		fLAds = rootView.findViewById (R.id.v_ad_unified);
-		fLAds.setVisibility (View.GONE);
-		refreshAd ();
+		//fLAds = rootView.findViewById (R.id.v_ad_unified);
+		//fLAds.setVisibility (View.GONE);
+	//	refreshAd ();
 		TextView tvNotification = rootView.findViewById (R.id.tv_notification_label);
 		tvNotification.post (() -> {
 			int length = tvNotification.getMeasuredWidth ();
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvNotification.getPaint ().setShader (textShader);
@@ -68,31 +68,20 @@ public class SettingFragment extends Fragment {
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvDataRateUnits.getPaint ().setShader (textShader);
 			tvDataRateUnits.invalidate ();
 		});
-		TextView tvAbout = rootView.findViewById (R.id.tv_about_label);
-		tvAbout.post (() -> {
-			int length = tvAbout.getMeasuredWidth ();
-			float angle = 45;
-			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
-					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
-					null,
-					Shader.TileMode.CLAMP);
-			tvAbout.getPaint ().setShader (textShader);
-			tvAbout.invalidate ();
-		});
+
 		TextView tvRateUs = rootView.findViewById (R.id.tv_rate_us_label);
 		tvRateUs.post (() -> {
 			int length = tvRateUs.getMeasuredWidth ();
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvRateUs.getPaint ().setShader (textShader);
@@ -104,7 +93,7 @@ public class SettingFragment extends Fragment {
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
 					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFF30E3CA, 0xFFa5dee5},
+					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
 					null,
 					Shader.TileMode.CLAMP);
 			tvPrivacyPolicy.getPaint ().setShader (textShader);
@@ -119,13 +108,13 @@ public class SettingFragment extends Fragment {
 		});
 		ConstraintLayout cLPrivacyPolicy = rootView.findViewById (R.id.cl_privacy_policy);
 		cLPrivacyPolicy.setOnClickListener (v -> {
-			Intent browserIntent = new Intent (Intent.ACTION_VIEW, Uri.parse ("https://raw.githubusercontent.com/N1001/envato/master/speedtest/privacy_policy.md"));
+			Intent browserIntent = new Intent (Intent.ACTION_VIEW, Uri.parse ("https://github.com/Atif123Rasheed"));
 			startActivity (browserIntent);
 		});
 		return rootView;
 	}
 
-	private void refreshAd () {
+	/*private void refreshAd () {
 		LOGE ("", "Ads");
 		AdLoader.Builder builder = new AdLoader.Builder (getActivity (), getString (R.string.admob_app_native));
 		builder.forUnifiedNativeAd (unifiedNativeAd -> {
@@ -195,7 +184,7 @@ public class SettingFragment extends Fragment {
 		}
 		adView.setNativeAd (nativeAd);
 	}
-
+*/
 	private void showAlertDialogButtonClicked () {
 		AlertDialog.Builder builder
 				= new AlertDialog.Builder (getContext (), R.style.MyDialogTheme);

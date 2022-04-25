@@ -44,8 +44,8 @@ public class RateDialog {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder (
 				wrapper);
 		alertDialogBuilder.setView (promptsView);
-		title1 = promptsView.findViewById (R.id.title1);
-		title1.post (() -> {
+		/*title1 = promptsView.findViewById (R.id.title1);*/
+		/*title1.post (() -> {
 			int length = title1.getMeasuredWidth ();
 			float angle = 45;
 			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
@@ -55,8 +55,8 @@ public class RateDialog {
 					Shader.TileMode.CLAMP);
 			title1.getPaint ().setShader (textShader);
 			title1.invalidate ();
-		});
-		title1.setText ("Love" + " " + activity.getResources ().getString (R.string.app_name) + "?");
+		});*/
+		/*title1.setText ("Love" + " " + activity.getResources ().getString (R.string.app_name) + "?");
 		alertDialogBuilder
 				.setPositiveButton ("Rate 5 star",
 						(dialog, id) -> {
@@ -68,7 +68,7 @@ public class RateDialog {
 							dialog.cancel ();
 						})
 				.setNegativeButton ("Cancel",
-						(dialog, id) -> dialog.cancel ());
+						(dialog, id) -> dialog.cancel ());*/
 		AlertDialog alertDialog = alertDialogBuilder.create ();
 		alertDialog.show ();
 		Button btn1 = alertDialog.getButton (DialogInterface.BUTTON_NEGATIVE);

@@ -15,10 +15,10 @@
                 android:startY = "24"
                 android:type = "linear">
                 <item
-                    android:color = "#30E3CA"
+                    android:color = "#AF4A00"
                     android:offset = "0.0" />
                 <item
-                    android:color = "#a5dee5"
+                    android:color = "#AF4A00"
                     android:offset = "1.0" />
 
             </gradient>
@@ -35,10 +35,10 @@
                 android:startY = "24"
                 android:type = "linear">
                 <item
-                    android:color = "#30E3CA"
+                    android:color = "#AF4A00"
                     android:offset = "0.0" />
                 <item
-                    android:color = "#a5dee5"
+                    android:color = "#AF4A00"
                     android:offset = "1.0" />
 
             </gradient>

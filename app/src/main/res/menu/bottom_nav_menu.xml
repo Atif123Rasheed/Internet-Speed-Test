@@ -4,19 +4,19 @@
     <item
         android:id = "@+id/action_history"
         android:enabled = "true"
-        android:icon = "@drawable/ic_history"
+        android:icon = "@drawable/ic_history_icon_active"
         android:title = "History"
         app:showAsAction = "ifRoom" />
     <item
         android:id = "@+id/action_speed"
         android:enabled = "true"
-        android:icon = "@drawable/ic_speed"
+        android:icon = "@drawable/ic_speed_icon_active"
         android:title = "Speed"
         app:showAsAction = "ifRoom" />
     <item
         android:id = "@+id/action_setting"
         android:enabled = "true"
-        android:icon = "@drawable/ic_setting"
+        android:icon = "@drawable/ic_settings_icon_active"
         android:title = "Settings"
         app:showAsAction = "ifRoom" />
 </menu>

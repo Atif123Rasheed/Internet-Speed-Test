@@ -1,66 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android = "http://schemas.android.com/apk/res/android"
-
-                                                   xmlns:app = "http://schemas.android.com/apk/res-auto"
-                                                   android:layout_width = "match_parent"
-                                                   android:layout_height = "match_parent"
-                                                   android:background = "@color/colorPrimaryDark">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".activities.SplashActivity">
 
     <ImageView
-        android:id = "@+id/iv_appicon"
-        android:layout_width = "0dp"
-        android:layout_height = "0dp"
-        android:src = "@drawable/ic_icon"
-        app:layout_constraintBottom_toTopOf = "@id/tv_appname"
-        app:layout_constraintDimensionRatio = "1:1"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintVertical_chainStyle = "packed"
-        app:layout_constraintWidth_percent = ".55" />
+        android:id="@+id/iv_app_logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_speedometer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <TextView
-        android:id = "@+id/tv_appname"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:fontFamily = "@font/opensans_regular"
-        android:gravity = "center"
-        android:text = "@string/app_name"
-        android:textColor = "@color/white"
-        android:textSize = "@dimen/_16ssp"
-        app:layout_constraintBottom_toTopOf = "@+id/tv_appdesc"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toBottomOf = "@id/iv_appicon" />
-
-    <TextView
-        android:id = "@+id/tv_appdesc"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:alpha = ".5"
-        android:fontFamily = "@font/opensans_regular"
-        android:gravity = "center"
-        android:text = "Check your Internet speed"
-        android:textColor = "@color/white"
-        android:textSize = "@dimen/_12ssp"
-        app:layout_constraintBottom_toTopOf = "@+id/tv_copyright"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toBottomOf = "@id/tv_appname" />
-
-    <TextView
-        android:id="@+id/tv_copyright"
+        android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_8sdp"
-        android:alpha=".5"
-        android:fontFamily="@font/opensans_regular"
-        android:gravity="center"
-        android:text="Copyright © 2020 by Sysflame"
+        android:fontFamily="@font/fugaz_one"
+        android:text="@string/speedtest"
         android:textColor="@color/white"
-        android:textSize="@dimen/_10ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="32sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

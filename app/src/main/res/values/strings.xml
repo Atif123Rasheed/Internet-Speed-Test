@@ -1,5 +1,5 @@
 <resources>
-    <string name = "app_name">Netro Test</string>
+    <string name = "app_name">Speed Tester</string>
     <string name = "admob_app_id">ca-app-pub-1754326763906656~9730302514</string>
     <string name = "admob_app_banner">ca-app-pub-1754326763906656/7846089794</string>
     <string name = "admob_app_interstitial">ca-app-pub-1754326763906656/5364230832</string>
@@ -16,5 +16,18 @@
     <string name = "history">History</string>
 
     <string name = "date_format">mm/dd/yyyy HH:mm</string>
+    <string name="speedtest">Speed Test</string>
+    <string name="value">-</string>
+    <string name="upload">UPLOAD</string>
+    <string name="download">DOWNLOAD</string>
+    <string name="date">Unit</string>
+    <string name="mbps">values</string>
+    <string name="values">Mbps</string>
+    <string name="scale">Scale</string>
+    <string name="_100">100</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="share">Share</string>
+    <string name="units">MBS</string>
 
 </resources>

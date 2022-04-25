@@ -4,8 +4,8 @@
         <shape android:shape = "oval">
             <gradient
                 android:angle = "45"
-                android:endColor = "@color/cp_4"
-                android:startColor = "@color/cp_0"
+                android:endColor = "#AF4A00"
+                android:startColor = "#AF4A00"
                 android:type = "linear" />
 
             <size
@@ -20,7 +20,7 @@
         android:right = "@dimen/_3sdp"
         android:top = "@dimen/_3sdp">
         <shape android:shape = "oval">
-            <solid android:color = "@color/colorPrimaryDark" />
+            <solid android:color = "#373737" />
         </shape>
     </item>
 

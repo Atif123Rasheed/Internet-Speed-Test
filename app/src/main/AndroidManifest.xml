@@ -23,7 +23,8 @@
             android:name = "com.sysflame.netdroid.activities.SplashActivity"
             android:label = "@string/app_name"
             android:screenOrientation = "portrait"
-            tools:ignore = "InnerclassSeparator,LockedOrientationActivity">
+            tools:ignore = "InnerclassSeparator,LockedOrientationActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name = "android.intent.action.MAIN" />
 

@@ -163,6 +163,8 @@ public class HomeActivity extends AppCompatActivity {
 			return view;
 		}
 
+
+
 		@NonNull
 		@Override
 		public Fragment getItem (int pos) {
