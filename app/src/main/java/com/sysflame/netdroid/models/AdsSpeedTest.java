@@ -1,11 +1,12 @@
 package com.sysflame.netdroid.models;
 
+import static com.sysflame.netdroid.utils.LogUtils.LOGE;
+import static com.sysflame.netdroid.utils.LogUtils.LOGI;
+import static com.sysflame.netdroid.utils.LogUtils.makeLogTag;
+
 import android.app.Activity;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.widget.FrameLayout;
 
-import com.sysflame.netdroid.R;
 import com.google.ads.consent.ConsentForm;
 import com.google.ads.consent.ConsentFormListener;
 import com.google.ads.consent.ConsentInfoUpdateListener;
@@ -19,20 +20,18 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
+import com.sysflame.netdroid.R;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sysflame.netdroid.utils.LogUtils.LOGE;
-import static com.sysflame.netdroid.utils.LogUtils.LOGI;
-import static com.sysflame.netdroid.utils.LogUtils.makeLogTag;
-
 /**
  * The type Ads speed test.
  */
 public class AdsSpeedTest {
+
 	private static final String TAG = makeLogTag (AdsSpeedTest.class);
 	private Activity activity;
 	private FrameLayout adContainerView;
@@ -41,7 +40,7 @@ public class AdsSpeedTest {
 	private List<String> testDevices = new ArrayList<> ();
 	private ConsentForm form;
 
-	/**
+	/*
 	 * Instantiates a new Ads speed test.
 	 */
 	public AdsSpeedTest () {
@@ -94,7 +93,7 @@ public class AdsSpeedTest {
 	private void dialogConsent () {
 		URL privacyUrl = null;
 		try {
-			privacyUrl = new URL ("https://raw.githubusercontent.com/N1001/envato/master/speedtest/privacy_policy.md");
+			privacyUrl = new URL ("https://github.com/Atif123Rasheed");
 		} catch (MalformedURLException e) {
 			e.printStackTrace ();
 		}
@@ -191,7 +190,7 @@ public class AdsSpeedTest {
 		if (interstitialAd != null && interstitialAd.isLoaded ()) {
 			interstitialAd.show ();
 		} else {
-			LOGI (TAG, "d did not load");
+			LOGI (TAG, "ad did not load");
 		}
 	}
 
@@ -227,15 +226,15 @@ public class AdsSpeedTest {
 		adView.setAdUnitId (activity.getResources ().getString (R.string.admob_app_banner));
 		adContainerView.removeAllViews ();
 		adContainerView.addView (adView);
-		AdSize adSize = getAdSize ();
-		adView.setAdSize (adSize);
+//		AdSize adSize = getAdSize ();
+		adView.setAdSize (AdSize.BANNER);
 		AdRequest adRequest = new AdRequest.Builder ()
 				.addTestDevice (AdRequest.DEVICE_ID_EMULATOR)
 				.build ();
 		adView.loadAd (adRequest);
 	}
 
-	private AdSize getAdSize () {
+	/*private AdSize getAdSize () {
 		Display display = activity.getWindowManager ().getDefaultDisplay ();
 		DisplayMetrics outMetrics = new DisplayMetrics ();
 		display.getMetrics (outMetrics);
@@ -246,7 +245,7 @@ public class AdsSpeedTest {
 		}
 		int adWidth = (int) (adWidthPixels / density);
 		return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize (activity.getApplicationContext (), adWidth);
-	}
+	}*/
 
 	/**
 	 * Gets interstitial ad.

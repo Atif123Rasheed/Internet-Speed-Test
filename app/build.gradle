@@ -8,7 +8,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
     compileSdkVersion 32
-    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.sysflame.netdroid"
         minSdkVersion 21
@@ -42,6 +41,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     //
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation "androidx.cardview:cardview:1.0.0"

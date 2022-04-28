@@ -59,13 +59,13 @@
     <style name = "AppTheme.PopupOverlay" parent = "ThemeOverlay.AppCompat.Light" />
 
     <style name = "MyDialogTheme" parent = "Theme.AppCompat.Light.Dialog.Alert">
-        <item name = "colorAccent">@color/white</item>
-        <item name = "android:background">@color/dialogbg</item>
+        <item name = "colorAccent">#AF4A00</item>
+        <item name = "android:background">#BCBCBC</item>
         <item name = "android:windowNoTitle">true</item>
     </style>
 
     <style name = "CustomRadioTheme" parent = "Widget.AppCompat.CompoundButton.RadioButton">
-        <item name = "android:colorControlNormal">@color/textColor2</item>
+        <item name = "android:colorControlNormal">@color/cp_0</item>
 
         <item name = "android:colorControlHighlight">@color/cp_4</item>
     </style>

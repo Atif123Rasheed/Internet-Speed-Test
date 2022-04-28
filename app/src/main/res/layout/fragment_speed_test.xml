@@ -85,18 +85,42 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id = "@+id/tv_information"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:alpha = ".5"
-        android:text = "Tell user what todo &amp; background informations"
-        android:textAlignment = "center"
-        android:textColor = "@color/white"
-        app:layout_constraintBottom_toTopOf = "@id/ll_download"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toBottomOf = "@+id/cl_progresschart" />
+
+    <LinearLayout
+        android:id="@+id/ll_connection_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_rectangle_4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_ping"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_progresschart"
+        app:layout_constraintVertical_bias="0.486">
+
+        <ImageView
+            android:id="@+id/icon_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_wifi_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha=".5"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/fugaz_one"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:text="@string/connection_name"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
     <LinearLayout
         android:id = "@+id/ll_ping"
@@ -107,7 +131,7 @@
         app:layout_constraintBottom_toTopOf = "@+id/tv_start"
         app:layout_constraintEnd_toStartOf = "@id/ll_download"
         app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toBottomOf = "@+id/tv_information"
+        app:layout_constraintTop_toBottomOf = "@+id/ll_connection_name"
         app:layout_constraintWidth_percent = ".3">
 
         <TextView
@@ -118,7 +142,7 @@
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
             android:text = "PING"
-            android:textColor = "@color/cp_0" />
+            android:textColor = "@color/cp_1" />
 
         <TextView
             android:id = "@+id/tv_ping_value"
@@ -145,7 +169,7 @@
         app:layout_constraintBottom_toTopOf = "@+id/tv_start"
         app:layout_constraintEnd_toEndOf = "parent"
         app:layout_constraintStart_toEndOf = "@+id/ll_download"
-        app:layout_constraintTop_toBottomOf = "@+id/tv_information"
+        app:layout_constraintTop_toBottomOf = "@+id/ll_connection_name"
         app:layout_constraintWidth_percent = ".3">
 
         <TextView
@@ -156,7 +180,7 @@
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
             android:text = "@string/upload"
-            android:textColor = "@color/cp_0" />
+            android:textColor = "@color/cp_1" />
 
         <TextView
             android:id = "@+id/tv_upload_value"
@@ -184,7 +208,7 @@
         app:layout_constraintBottom_toTopOf = "@+id/tv_start"
         app:layout_constraintEnd_toStartOf = "@id/ll_upload"
         app:layout_constraintStart_toEndOf = "@+id/ll_ping"
-        app:layout_constraintTop_toBottomOf = "@+id/tv_information"
+        app:layout_constraintTop_toBottomOf = "@+id/ll_connection_name"
         app:layout_constraintWidth_percent = ".3">
 
         <TextView
@@ -195,7 +219,7 @@
             android:layout_width = "wrap_content"
             android:layout_height = "wrap_content"
             android:text = "@string/download"
-            android:textColor = "@color/cp_0" />
+            android:textColor = "@color/cp_1" />
 
         <TextView
             android:id = "@+id/tv_download_value"

@@ -14,11 +14,14 @@ import com.sysflame.netdroid.R;
  * The type Splash activity.
  */
 public class SplashActivity extends AppCompatActivity {
+
 	@Override
+
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate (savedInstanceState);
 		setContentView (R.layout.activity_splash);
 		init_variables ();
+
 	}
 
 	private void init_variables () {
@@ -29,8 +32,9 @@ public class SplashActivity extends AppCompatActivity {
 		editor.apply ();
 		Handler handler = new Handler ();
 		handler.postDelayed (() -> {
-			SplashActivity.this.startActivity (new Intent (SplashActivity.this, HomeActivity.class));
+			SplashActivity.this.startActivity (new Intent (SplashActivity.this, GetStarted.class));
 			finish ();
 		}, 2000);
 	}
+
 }

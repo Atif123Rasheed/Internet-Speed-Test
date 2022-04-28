@@ -41,6 +41,7 @@ import com.sysflame.netdroid.custom_ui.TickProgressBar;
 import com.sysflame.netdroid.models.AdsSpeedTest;
 import com.sysflame.netdroid.utils.ConnectionDetector;
 import com.sysflame.netdroid.utils.GetSpeedTestHostsHandler;
+import com.sysflame.netdroid.utils.Utils;
 import com.sysflame.netdroid.utils.test.HttpDownloadTest;
 import com.sysflame.netdroid.utils.test.HttpUploadTest;
 import com.sysflame.netdroid.utils.test.PingTest;
@@ -212,13 +213,14 @@ public class SpeedTestFragment extends Fragment {
         ivPBDownload = view.findViewById(R.id.iv_download);
         ivPBUpload = view.findViewById(R.id.iv_upload);
         tvPingL = view.findViewById(R.id.tv_ping_label);
+
         tickProgressMeasure.setMax(100 * 100);
         tvPingL.post(() -> {
             int length = tvPingL.getMeasuredWidth();
             float angle = 45;
             Shader textShader = new LinearGradient(0, 0, (int) (Math.sin(Math.PI * angle / 180) * length),
                     (int) (Math.cos(Math.PI * angle / 180) * length),
-                    new int[]{0xFFAF4A00, 0xFFAF4A00},
+                    new int[]{0xFF787878, 0xFF787878},
                     null,
                     Shader.TileMode.CLAMP);
             tvPingL.getPaint().setShader(textShader);
@@ -230,7 +232,7 @@ public class SpeedTestFragment extends Fragment {
             float angle = 45;
             Shader textShader = new LinearGradient(0, 0, (int) (Math.sin(Math.PI * angle / 180) * length),
                     (int) (Math.cos(Math.PI * angle / 180) * length),
-                    new int[]{0xFFAF4A00, 0xFFAF4A00},
+                    new int[]{0xFF787878, 0xFF787878},
                     null,
                     Shader.TileMode.CLAMP);
             tvDownloadL.getPaint().setShader(textShader);
@@ -242,7 +244,7 @@ public class SpeedTestFragment extends Fragment {
             float angle = 45;
             Shader textShader = new LinearGradient(0, 0, (int) (Math.sin(Math.PI * angle / 180) * length),
                     (int) (Math.cos(Math.PI * angle / 180) * length),
-                    new int[]{0xFFAF4A00, 0xFFAF4A00},
+                    new int[]{0xFF787878, 0xFF787878},
                     null,
                     Shader.TileMode.CLAMP);
             tvUploadL.getPaint().setShader(textShader);
@@ -322,7 +324,7 @@ public class SpeedTestFragment extends Fragment {
 
     private void testSpeed() {
         tvBegin.setImageResource(R.drawable.ic_stop);
-        tvBlink.setVisibility(View.VISIBLE);
+       tvBlink.setVisibility(View.VISIBLE);
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(650);
         anim.setStartOffset(20);
@@ -337,7 +339,7 @@ public class SpeedTestFragment extends Fragment {
             if (getActivity() == null)
                 return;
             try {
-                getActivity().runOnUiThread(() -> tvBlink.setText("Find the Best Server"));
+                getActivity().runOnUiThread(() -> tvBlink.setText("No Internet Connection"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -355,9 +357,9 @@ public class SpeedTestFragment extends Fragment {
                         return;
                     try {
                         getActivity().runOnUiThread(() -> {
-                            tvBlink.clearAnimation();
-                            tvBlink.setVisibility(View.GONE);
-                            tvBlink.setText("No Connection...");
+                          tvBlink.clearAnimation();
+                          tvBlink.setVisibility(View.GONE);
+                          tvBlink.setText("No Connection...");
                             tvBegin.setImageResource(R.drawable.ic_play);
                         });
                         getSpeedTestHostsHandler = null;
@@ -400,7 +402,10 @@ public class SpeedTestFragment extends Fragment {
                     getActivity().runOnUiThread(() -> {
                         tvBlink.clearAnimation();
                         tvBlink.setVisibility(View.VISIBLE);
-                        tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+                        //tvBlink.setText(Utils.getWifiName(getContext()));
+                        tvBlink.setText(String.format(Utils.getWifiName(getContext()), info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+
+                        //tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
                     });
                     getActivity().runOnUiThread(() -> {
                         tvPing.setText("0");
@@ -415,12 +420,12 @@ public class SpeedTestFragment extends Fragment {
                     final List<Double> pingRateList = new ArrayList<>();
                     final List<Double> downloadRateList = new ArrayList<>();
                     final List<Double> uploadRateList = new ArrayList<>();
-                    Boolean pingTestStarted = false;
-                    Boolean pingTestFinished = false;
-                    Boolean downloadTestStarted = false;
-                    Boolean downloadTestFinished = false;
-                    Boolean uploadTestStarted = false;
-                    Boolean uploadTestFinished = false;
+                    boolean pingTestStarted = false;
+                    boolean pingTestFinished = false;
+                    boolean downloadTestStarted = false;
+                    boolean downloadTestFinished = false;
+                    boolean uploadTestStarted = false;
+                    boolean uploadTestFinished = false;
                     final PingTest pingTest = new PingTest(info.get(6).replace(":8080", ""), 6);
                     final HttpDownloadTest downloadTest = new HttpDownloadTest(uploadAddr.replace(uploadAddr.split("/")[uploadAddr.split("/").length - 1], ""));
                     final HttpUploadTest uploadTest = new HttpUploadTest(uploadAddr);
@@ -859,4 +864,5 @@ public class SpeedTestFragment extends Fragment {
             LOGI("TAG", "onFailure");
         }
     }
+
 }

@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android = "http://schemas.android.com/apk/res/android"
-          xmlns:tools = "http://schemas.android.com/tools"
-          package = "com.sysflame.netdroid">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sysflame.netdroid">
 
-    <uses-permission android:name = "android.permission.INTERNET" />
-    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name = "android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name = "android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:allowBackup = "true"
-        android:hardwareAccelerated = "true"
-        android:icon = "@mipmap/ic_launcher"
-        android:label = "@string/app_name"
-        android:roundIcon = "@mipmap/ic_launcher_round"
-        android:supportsRtl = "true"
-        android:theme = "@style/AppTheme"
-        android:usesCleartextTraffic = "true"
-        tools:ignore = "GoogleAppIndexingWarning,HardcodedDebugMode">
-
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode">
         <activity
-            android:name = "com.sysflame.netdroid.activities.SplashActivity"
-            android:label = "@string/app_name"
-            android:screenOrientation = "portrait"
-            tools:ignore = "InnerclassSeparator,LockedOrientationActivity"
-            android:exported="true">
+            android:name=".activities.GetStarted"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity">
             <intent-filter>
-                <action android:name = "android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name = "android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.sysflame.netdroid.activities.HomeActivity"
+            android:name=".activities.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            tools:ignore="LockedOrientationActivity" />
-
+            tools:ignore="LockedOrientationActivity" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
-            android:name = "com.google.android.gms.ads.APPLICATION_ID"
-            android:value = "@string/admob_app_id" />
-
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>
