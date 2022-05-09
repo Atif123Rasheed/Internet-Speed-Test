@@ -57,6 +57,13 @@ public class HttpUploadTest extends Thread {
 		return bd.doubleValue ();
 	}
 
+	/* TODO
+	*NumberFormat format = NumberFormat.getInstance(Locale.GERMAN);
+	*double valueLocal = Objects.requireNonNull(format.parse(places)).intValue();
+	*/
+
+
+
 	/**
 	 * Is finished boolean.
 	 *

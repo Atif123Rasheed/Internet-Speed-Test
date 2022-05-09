@@ -32,7 +32,7 @@ public class ConnectionDetector {
 			if (info != null)
 				for (int i = 0 ; i < info.length ; i++)
 					if (info[ i ].getState () == NetworkInfo.State.CONNECTED) {
-						Log.d ("Network", "NETWORKnAME: " + info[ i ].getTypeName ());
+						Log.d ("Network", "NetworkName: " + info[ i ].getTypeName ());
 						return true;
 					}
 		}

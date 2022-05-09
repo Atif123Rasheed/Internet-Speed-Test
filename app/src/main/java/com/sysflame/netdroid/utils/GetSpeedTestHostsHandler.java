@@ -81,8 +81,8 @@ public class GetSpeedTestHostsHandler extends Thread {
 	@Override
 	public void run () {
 		try {
-			//URL url = new URL ("https://www.speedtest.net/speedtest-config.php");
-			URL url = new URL ("https://c.speedtest.net/speedtest-config.php");
+			URL url = new URL ("https://www.speedtest.net/speedtest-config.php");
+			//URL url = new URL ("https://c.speedtest.net/speedtest-config.php");
 			InputStream is = url.openStream ();
 			int ptr = 0;
 			StringBuilder buffer = new StringBuilder ();

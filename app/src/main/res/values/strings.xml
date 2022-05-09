@@ -15,7 +15,7 @@
     <string name="speed">Speed</string>
     <string name="history">History</string>
 
-    <string name="date_format">mm/dd/yyyy HH:mm</string>
+    <string name="date_format">MM/dd/yyyy HH:mm</string>
     <string name="speedtest">Speed Test</string>
     <string name="value">-</string>
     <string name="upload">UPLOAD</string>
@@ -30,5 +30,6 @@
     <string name="share">Share</string>
     <string name="units">MBS</string>
     <string name="connection_name">connection Name</string>
+
 
 </resources>

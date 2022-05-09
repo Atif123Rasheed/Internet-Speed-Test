@@ -4,33 +4,47 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_buttom_navigation_background.xml" value="0.2125" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_button_1.xml" value="0.103" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.169" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_rectangle_4.xml" value="0.103" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_rectangle_6.xml" value="0.1865" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_settings_icon_active.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_settings_icon_dull.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_speed_icon_active.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_speed_icon_dull.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_speedometer.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/ic_wifi_icon.xml" value="0.1295" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable-v24/selector.xml" value="0.1" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/bg_circle.xml" value="0.175" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/bg_speedtest.xml" value="0.175" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/bg_text_ad.xml" value="0.103" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/bnv_tab_item_foreground.xml" value="0.2115" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/chart_background.xml" value="0.2115" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_download.xml" value="0.2115" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_download.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_play.xml" value="0.1545" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_setting.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_settings.xml" value="0.103" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_share.xml" value="0.103" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_speed.xml" value="0.16" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_star.xml" value="0.2115" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_stop.xml" value="0.1545" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_upload.xml" value="0.2115" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_store.xml" value="0.1295" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/ic_upload.xml" value="0.12" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/drawable/tab_indicator.xml" value="0.1295" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/font/fugaz_one.xml" value="0.284375" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/activity_get_started.xml" value="0.178125" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/ad_unified.xml" value="0.517774343122102" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/banner.xml" value="0.2" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/card_layout.xml" value="0.536" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/custom_tab.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/dialog_datarate_units.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/card_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/custom_tab.xml" value="0.2" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/dialog_datarate_units.xml" value="0.264" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/dialog_language.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/dialog_scale_units.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/fragment_daily_data.xml" value="0.264" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/fragment_setting.xml" value="0.264" />
-        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/fragment_speed_test.xml" value="0.264" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/fragment_setting.xml" value="0.2" />
+        <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/fragment_speed_test.xml" value="0.152" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/lout_rate.xml" value="0.4" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/layout/toolbar.xml" value="0.4" />
         <entry key="..\:/Users/Nexgen/AndroidStudioProjects/Internet-Speed-Test/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />

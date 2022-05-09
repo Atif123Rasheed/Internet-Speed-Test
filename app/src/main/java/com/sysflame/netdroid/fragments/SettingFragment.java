@@ -3,11 +3,9 @@ package com.sysflame.netdroid.fragments;
 import static com.sysflame.netdroid.utils.LogUtils.LOGE;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +18,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.sysflame.netdroid.R;
 import com.sysflame.netdroid.utils.RateDialog;
 
@@ -40,6 +43,9 @@ public class SettingFragment extends Fragment {
 	private RadioButton chineseLanguage;
 	private RadioButton arabicLanguage;
 
+	private AdView mAdView;
+
+
 	private FrameLayout fLAds;
 
 
@@ -50,8 +56,28 @@ public class SettingFragment extends Fragment {
 		View rootView = inflater.inflate (R.layout.fragment_setting, container, false);
 
 
-	/*	fLAds = rootView.findViewById (R.id.v_ad_unified);
-		fLAds.setVisibility (View.GONE);*/
+		/*MobileAds.initialize(requireActivity().getApplicationContext(), new OnInitializationCompleteListener() {
+			@Override
+			public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+			}
+		});
+
+		fLAds = rootView.findViewById (R.id.v_ad_banner);
+		fLAds.setVisibility(View.GONE);
+*/
+		MobileAds.initialize(requireActivity().getApplicationContext(), new OnInitializationCompleteListener() {
+			@Override
+			public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+			}
+		});
+
+		mAdView = rootView.findViewById(R.id.adView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
+
 
 		TextView tvScaleRateUnits = rootView.findViewById(R.id.tv_setting_scale);
 
@@ -83,21 +109,10 @@ public class SettingFragment extends Fragment {
 			tvRateUs.invalidate ();
 		});
 
-		TextView tvPrivacyPolicy = rootView.findViewById (R.id.tv_privacy_policy_label);
-		tvPrivacyPolicy.post (() -> {
-			int length = tvPrivacyPolicy.getMeasuredWidth ();
-			float angle = 45;
-			Shader textShader = new LinearGradient (0, 0, (int) (Math.sin (Math.PI * angle / 180) * length),
-					(int) (Math.cos (Math.PI * angle / 180) * length),
-					new int[] {0xFFFDFDFD, 0xFFFDFDFD},
-					null,
-					Shader.TileMode.CLAMP);
-			tvPrivacyPolicy.getPaint ().setShader (textShader);
-			tvPrivacyPolicy.invalidate ();
-		});
+
 
 		ConstraintLayout constraintLayout = rootView.findViewById (R.id.cl_data_rate_units);
-		constraintLayout.setOnClickListener (v -> showAlertDialogButtonClicked ());
+		constraintLayout.setOnClickListener (v -> showAlertDialogButtonClicked  ());
 
 		ConstraintLayout constraintLayoutScale = rootView.findViewById(R.id.cl_scale);
 		constraintLayoutScale.setOnClickListener(v -> showAlertDialogButtonClickedScale());
@@ -111,13 +126,38 @@ public class SettingFragment extends Fragment {
 			rateDialog.displayRatingDialogue ();
 		});
 
-		ConstraintLayout cLPrivacyPolicy = rootView.findViewById (R.id.cl_privacy_policy);
-		cLPrivacyPolicy.setOnClickListener (v -> {
-			Intent browserIntent = new Intent (Intent.ACTION_VIEW, Uri.parse ("https://github.com/Atif123Rasheed"));
-			startActivity (browserIntent);
-		});
+
 		return rootView;
 	}
+
+	/*private void loadBanner() {
+
+		mAdView = new AdView (requireActivity().getApplicationContext ());
+		mAdView.setAdUnitId (requireActivity().getResources ().getString (R.string.admob_app_banner));
+		fLAds.addView (mAdView);
+		AdSize adSize = adSize ();
+		mAdView.setAdSize (AdSize.BANNER);
+		AdRequest adRequest =
+				new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
+
+	}
+
+	private AdSize adSize() {
+		Display display = getActivity().getWindowManager().getDefaultDisplay();
+		DisplayMetrics outMetrics = new DisplayMetrics();
+		display.getMetrics(outMetrics);
+
+		float widthPixels = outMetrics.widthPixels;
+		float density = outMetrics.density;
+
+		int adWidth = (int) (widthPixels / density);
+
+		// Step 3 - Get adaptive ad size and return for setting on the ad view.
+		return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getActivity(), adWidth);
+
+	}*/
+
 	private void showAlertDialogButtonClickedLanguage(){
 		AlertDialog.Builder builder
 				= new AlertDialog.Builder (getContext (), R.style.MyDialogTheme);
@@ -283,6 +323,7 @@ public class SettingFragment extends Fragment {
 		SharedPreferences sharedPref = getActivity ().getSharedPreferences (
 				"setting", Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sharedPref.edit ();
+
 
 		switch (sharedPref.getString ("UNIT", "Mbps")) {
 			case "MBps":

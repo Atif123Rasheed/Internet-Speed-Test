@@ -1,5 +1,6 @@
 package com.sysflame.netdroid.custom_ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 /**
  * The type Square image view.
  */
+@SuppressLint("AppCompatCustomView")
 public class SquareImageView extends ImageView {
 	/**
 	 * Instantiates a new Square image view.

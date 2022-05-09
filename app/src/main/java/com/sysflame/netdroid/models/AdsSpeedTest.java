@@ -1,29 +1,18 @@
 package com.sysflame.netdroid.models;
 
-import static com.sysflame.netdroid.utils.LogUtils.LOGE;
 import static com.sysflame.netdroid.utils.LogUtils.LOGI;
 import static com.sysflame.netdroid.utils.LogUtils.makeLogTag;
 
 import android.app.Activity;
-import android.widget.FrameLayout;
 
-import com.google.ads.consent.ConsentForm;
-import com.google.ads.consent.ConsentFormListener;
-import com.google.ads.consent.ConsentInfoUpdateListener;
-import com.google.ads.consent.ConsentInformation;
-import com.google.ads.consent.ConsentStatus;
-import com.google.ads.consent.DebugGeography;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.sysflame.netdroid.R;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +23,11 @@ public class AdsSpeedTest {
 
 	private static final String TAG = makeLogTag (AdsSpeedTest.class);
 	private Activity activity;
-	private FrameLayout adContainerView;
+	//private FrameLayout adContainerView;
 	private AdView adView;
 	private InterstitialAd interstitialAd;
 	private List<String> testDevices = new ArrayList<> ();
-	private ConsentForm form;
+	//private ConsentForm form;
 
 	/*
 	 * Instantiates a new Ads speed test.
@@ -62,84 +51,17 @@ public class AdsSpeedTest {
 		MobileAds.setRequestConfiguration (requestConfiguration);
 	}
 
-	/**
-	 * Init consent.
-	 */
-	public void initConsent () {
-		getConsent ();
-	}
 
-	private void getConsent () {
-		ConsentInformation consentInformation = ConsentInformation.getInstance (activity.getApplicationContext ());
-		consentInformation.addTestDevice (AdRequest.DEVICE_ID_EMULATOR);
-		consentInformation.addTestDevice ("298B12906876C04EAC9C8FDD066FFF1A");
-		consentInformation.setDebugGeography (DebugGeography.DEBUG_GEOGRAPHY_EEA);
-		String[] publisherIds = {"pub-7009790987498270"};
-		consentInformation.requestConsentInfoUpdate (publisherIds, new ConsentInfoUpdateListener () {
-			@Override
-			public void onConsentInfoUpdated (ConsentStatus consentStatus) {
-				LOGE (TAG, "ConsentStatus = " + consentStatus);
-				dialogConsent ();
-			}
-
-			@Override
-			public void onFailedToUpdateConsentInfo (String errorDescription) {
-				LOGE (TAG, "ConsentStatus = " + errorDescription);
-				dialogConsent ();
-			}
-		});
-	}
-
-	private void dialogConsent () {
-		URL privacyUrl = null;
-		try {
-			privacyUrl = new URL ("https://github.com/Atif123Rasheed");
-		} catch (MalformedURLException e) {
-			e.printStackTrace ();
-		}
-		form = new ConsentForm.Builder (activity, privacyUrl)
-				.withListener (new ConsentFormListener () {
-					@Override
-					public void onConsentFormLoaded () {
-						LOGE (TAG, "Consent form loaded successfully.");
-						showConsentForm ();
-					}
-
-					@Override
-					public void onConsentFormOpened () {
-						LOGE (TAG, "Consent form was displayed.");
-					}
-
-					@Override
-					public void onConsentFormClosed (
-							ConsentStatus consentStatus, Boolean userPrefersAdFree) {
-						LOGE (TAG, "Consent form was closed.");
-					}
-
-					@Override
-					public void onConsentFormError (String errorDescription) {
-						LOGE (TAG, "Consent form error." + errorDescription);
-					}
-				})
-				.withPersonalizedAdsOption ()
-				.withNonPersonalizedAdsOption ()
-				.withAdFreeOption ()
-				.build ();
-		form.load ();
-	}
-
-	private void showConsentForm () {
-		form.show ();
-	}
 
 	/**
 	 * Init banner.
 	 */
-	public void initBanner () {
+	/*public void initBanner () {
 		adContainerView = activity.findViewById (R.id.ad_view_container);
-		adContainerView.post (this::loadBanner);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		adView.loadAd(adRequest);
 	}
-
+*/
 	/**
 	 * Init interstitial.
 	 */
@@ -221,31 +143,7 @@ public class AdsSpeedTest {
 		}
 	}
 
-	private void loadBanner () {
-		adView = new AdView (activity.getApplicationContext ());
-		adView.setAdUnitId (activity.getResources ().getString (R.string.admob_app_banner));
-		adContainerView.removeAllViews ();
-		adContainerView.addView (adView);
-//		AdSize adSize = getAdSize ();
-		adView.setAdSize (AdSize.BANNER);
-		AdRequest adRequest = new AdRequest.Builder ()
-				.addTestDevice (AdRequest.DEVICE_ID_EMULATOR)
-				.build ();
-		adView.loadAd (adRequest);
-	}
 
-	/*private AdSize getAdSize () {
-		Display display = activity.getWindowManager ().getDefaultDisplay ();
-		DisplayMetrics outMetrics = new DisplayMetrics ();
-		display.getMetrics (outMetrics);
-		float density = outMetrics.density;
-		float adWidthPixels = adContainerView.getWidth ();
-		if (adWidthPixels == 0) {
-			adWidthPixels = outMetrics.widthPixels;
-		}
-		int adWidth = (int) (adWidthPixels / density);
-		return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize (activity.getApplicationContext (), adWidth);
-	}*/
 
 	/**
 	 * Gets interstitial ad.

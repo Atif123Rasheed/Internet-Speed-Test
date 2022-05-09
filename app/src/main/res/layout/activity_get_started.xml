@@ -19,18 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.378" />
 
-    <TextView
-        android:id="@+id/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/fugaz_one"
-        android:text="@string/speedtest"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo" />
+
 
     <Button
         android:id="@+id/get_started"
@@ -39,11 +28,11 @@
         android:text="Get Started"
         android:textAllCaps="false"
         android:textStyle=""
-        android:fontFamily="@font/fugaz_one"
+        android:fontFamily="@font/fugaz_one_font"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:background="@drawable/ic_rectangle_6"
-        app:layout_constraintTop_toBottomOf="@+id/app_name"
+        app:layout_constraintTop_toBottomOf="@+id/iv_app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/_32sdp">

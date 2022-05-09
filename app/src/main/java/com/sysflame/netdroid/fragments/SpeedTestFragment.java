@@ -32,16 +32,18 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
-import com.loopj.android.http.AsyncHttpClient;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 import com.sysflame.netdroid.R;
 import com.sysflame.netdroid.custom_ui.TickProgressBar;
 import com.sysflame.netdroid.models.AdsSpeedTest;
 import com.sysflame.netdroid.utils.ConnectionDetector;
 import com.sysflame.netdroid.utils.GetSpeedTestHostsHandler;
-import com.sysflame.netdroid.utils.Utils;
 import com.sysflame.netdroid.utils.test.HttpDownloadTest;
 import com.sysflame.netdroid.utils.test.HttpUploadTest;
 import com.sysflame.netdroid.utils.test.PingTest;
@@ -131,6 +133,7 @@ public class SpeedTestFragment extends Fragment {
     private SharedPreferences sharedPref;
     private AdsSpeedTest adsSpeedTest;
     private boolean testing = false;
+    private AdView mAdView;
 
     @Nullable
     @Override
@@ -138,6 +141,16 @@ public class SpeedTestFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_speed_test, container, false);
         mContext = getActivity();
         init();
+        MobileAds.initialize(requireActivity().getApplicationContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+
+        mAdView = view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         return view;
     }
 
@@ -339,7 +352,7 @@ public class SpeedTestFragment extends Fragment {
             if (getActivity() == null)
                 return;
             try {
-                getActivity().runOnUiThread(() -> tvBlink.setText("No Internet Connection"));
+                getActivity().runOnUiThread(() -> tvBlink.setText("No Internet"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -403,9 +416,8 @@ public class SpeedTestFragment extends Fragment {
                         tvBlink.clearAnimation();
                         tvBlink.setVisibility(View.VISIBLE);
                         //tvBlink.setText(Utils.getWifiName(getContext()));
-                        tvBlink.setText(String.format(Utils.getWifiName(getContext()), info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
-
-                        //tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+                        //tvBlink.setText(String.format(Utils.getWifiName(getContext()), info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+                        tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
                     });
                     getActivity().runOnUiThread(() -> {
                         tvPing.setText("0");
@@ -790,16 +802,6 @@ public class SpeedTestFragment extends Fragment {
         }).start();
     }
 
-    /**
-     * Gets ads app list.
-     */
-    public void getAdsAppList() {
-        RequestParams params = new RequestParams();
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.setTimeout(60 * 1000);
-        client.post("https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=892bdb8d0e6519769124a90c84643290&photoset_id=" +
-                "72157688887276095&extras=description%2C+url_m%2C+url_o%2C+url_l&per_page=20&page=1&format=json&nojsoncallback=1", params, new getTrainResponseHandler());
-    }
 
     private void defaultValues() {
         tickProgressMeasure.setProgress(0);

@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
     private void init_variables() {
         FirebaseAnalytics.getInstance(this);
         adsSpeedTest = new AdsSpeedTest(this);
-        adsSpeedTest.initConsent();
+       // adsSpeedTest.initConsent();
         Intent intentBC = new Intent();
         intentBC.setAction("com.sysflame.netdroid");
         sendBroadcast(intentBC);

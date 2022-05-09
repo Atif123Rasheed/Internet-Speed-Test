@@ -6,121 +6,99 @@
     android:layout_height = "match_parent"
     android:background = "@color/black"
     android:orientation = "vertical"
-    android:padding = "@dimen/_20sdp">
+    android:padding = "@dimen/_4sdp">
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/cl_progresschart"
+        ads:layout_constraintStart_toStartOf="parent">
+    </com.google.android.gms.ads.AdView>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id = "@+id/cl_progresschart"
-        android:layout_width = "0dp"
-        android:layout_height = "0dp"
-        android:background = "@drawable/bg_speedtest"
-        android:padding = "@dimen/_22sdp"
-        app:layout_constraintDimensionRatio = "1:1"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toTopOf = "parent"
-        app:layout_constraintWidth_percent = ".8">
+        android:id="@+id/cl_progresschart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_speedtest"
+        android:padding="@dimen/_22sdp"
+        app:layout_constraintBottom_toTopOf="@+id/ll_ping"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adView"
+        app:layout_constraintWidth_percent=".8">
 
         <View
-            android:layout_width = "0dp"
-            android:layout_height = "0dp"
-            android:background = "@drawable/bg_circle"
-            app:layout_constraintBottom_toBottomOf = "@+id/tickProgressBar"
-            app:layout_constraintEnd_toEndOf = "parent"
-            app:layout_constraintStart_toStartOf = "parent"
-            app:layout_constraintTop_toTopOf = "parent" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_circle"
+            app:layout_constraintBottom_toBottomOf="@+id/tickProgressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.github.mikephil.charting.charts.LineChart
-            android:id = "@+id/linechart"
-            android:layout_width = "0dp"
-            android:layout_height = "0dp"
-            android:layout_marginBottom = "@dimen/_40sdp"
-            android:background = "@drawable/chart_background"
-            app:layout_constraintBottom_toBottomOf = "parent"
-            app:layout_constraintEnd_toEndOf = "parent"
-            app:layout_constraintHeight_percent = ".1"
-            app:layout_constraintStart_toStartOf = "parent"
-            app:layout_constraintWidth_percent = ".4" />
+            android:id="@+id/linechart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:background="@drawable/chart_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".4" />
 
         <ImageView
-            android:id = "@+id/iv_download"
-            android:layout_width = "@dimen/_24sdp"
-            android:layout_height = "@dimen/_24sdp"
-            android:layout_marginStart = "@dimen/_24sdp"
-            android:layout_marginLeft = "@dimen/_24sdp"
-            android:src = "@drawable/ic_download"
-            app:layout_constraintBottom_toBottomOf = "@+id/tickProgressBar"
-            app:layout_constraintStart_toStartOf = "@+id/tickProgressBar"
-            app:layout_constraintTop_toTopOf = "@+id/tickProgressBar" />
+            android:id="@+id/iv_download"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_24sdp"
+            android:layout_marginLeft="@dimen/_24sdp"
+            android:src="@drawable/ic_download"
+            app:layout_constraintBottom_toBottomOf="@+id/tickProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/tickProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/tickProgressBar" />
 
         <ImageView
-            android:id = "@+id/iv_upload"
-            android:layout_width = "@dimen/_24sdp"
-            android:layout_height = "@dimen/_24sdp"
-            android:layout_marginEnd = "@dimen/_24sdp"
-            android:layout_marginRight = "@dimen/_24sdp"
-            android:src = "@drawable/ic_upload"
-            app:layout_constraintBottom_toBottomOf = "@+id/tickProgressBar"
-            app:layout_constraintEnd_toEndOf = "@+id/tickProgressBar"
-            app:layout_constraintTop_toTopOf = "@+id/tickProgressBar" />
+            android:id="@+id/iv_upload"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:layout_marginRight="@dimen/_24sdp"
+            android:src="@drawable/ic_upload"
+            app:layout_constraintBottom_toBottomOf="@+id/tickProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/tickProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/tickProgressBar" />
 
         <com.sysflame.netdroid.custom_ui.TickProgressBar
-            android:id = "@+id/tickProgressBar"
-            android:layout_width = "0dp"
-            android:layout_height = "0dp"
-            android:progress = "90"
-            app:layout_constraintBottom_toBottomOf = "parent"
-            app:layout_constraintDimensionRatio = "1:1"
-            app:layout_constraintEnd_toEndOf = "parent"
-            app:layout_constraintStart_toStartOf = "parent"
-            app:layout_constraintTop_toTopOf = "parent"
-            app:layout_constraintWidth_percent = ".95"
-            app:tick_borderWidth = "@dimen/_8sdp"
-            app:tick_centertext = "@dimen/_28ssp"
-            app:tick_degree = "0"
-            app:tick_per_text = "@dimen/_16ssp"
-            app:tick_progressColor = "#AF4A00"
-            app:tick_tickWidth = "@dimen/_1sdp"
-            app:tick_unit = "MS"
-            app:tick_unprogresColor = "#AF4A00" />
+            android:id="@+id/tickProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:progress="90"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".95"
+            app:tick_borderWidth="@dimen/_8sdp"
+            app:tick_centertext="@dimen/_28ssp"
+            app:tick_degree="90"
+            app:tick_per_text="@dimen/_16ssp"
+            app:tick_progressColor="#AF4A00"
+            app:tick_tickWidth="@dimen/_1sdp"
+            app:tick_unit="MS"
+            app:tick_unprogresColor="#AF4A00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <LinearLayout
-        android:id="@+id/ll_connection_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_rectangle_4"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/ll_ping"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_progresschart"
-        app:layout_constraintVertical_bias="0.486">
-
-        <ImageView
-            android:id="@+id/icon_wifi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/ic_wifi_icon"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/tv_information"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha=".5"
-            android:textSize="@dimen/_14sdp"
-            android:fontFamily="@font/fugaz_one"
-            android:layout_marginLeft="@dimen/_8sdp"
-            android:text="@string/connection_name"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </LinearLayout>
 
     <LinearLayout
         android:id = "@+id/ll_ping"
@@ -128,15 +106,15 @@
         android:layout_height = "wrap_content"
         android:orientation = "vertical"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf = "@+id/tv_start"
+        app:layout_constraintBottom_toTopOf = "@+id/ll_connection_name"
         app:layout_constraintEnd_toStartOf = "@id/ll_download"
         app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintTop_toBottomOf = "@+id/ll_connection_name"
+        app:layout_constraintTop_toBottomOf = "@+id/cl_progresschart"
         app:layout_constraintWidth_percent = ".3">
 
         <TextView
             android:id = "@+id/tv_ping_label"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_width = "wrap_content"
@@ -166,15 +144,15 @@
         android:layout_height = "wrap_content"
         android:orientation = "vertical"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf = "@+id/tv_start"
+        app:layout_constraintBottom_toTopOf = "@+id/ll_connection_name"
         app:layout_constraintEnd_toEndOf = "parent"
         app:layout_constraintStart_toEndOf = "@+id/ll_download"
-        app:layout_constraintTop_toBottomOf = "@+id/ll_connection_name"
+        app:layout_constraintTop_toBottomOf = "@+id/cl_progresschart"
         app:layout_constraintWidth_percent = ".3">
 
         <TextView
             android:id = "@+id/tv_upload_label"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_width = "wrap_content"
@@ -205,15 +183,15 @@
         android:layout_height = "wrap_content"
         android:orientation = "vertical"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf = "@+id/tv_start"
+        app:layout_constraintBottom_toTopOf = "@+id/ll_connection_name"
         app:layout_constraintEnd_toStartOf = "@id/ll_upload"
         app:layout_constraintStart_toEndOf = "@+id/ll_ping"
-        app:layout_constraintTop_toBottomOf = "@+id/ll_connection_name"
+        app:layout_constraintTop_toBottomOf = "@+id/cl_progresschart"
         app:layout_constraintWidth_percent = ".3">
 
         <TextView
             android:id = "@+id/tv_download_label"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_width = "wrap_content"
@@ -237,16 +215,57 @@
             android:textColor = "@color/white" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_connection_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="112dp"
+        android:background="@drawable/ic_rectangle_4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.816">
+
+        <ImageView
+            android:id="@+id/icon_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_wifi_icon"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:alpha=".5"
+            android:fontFamily="@font/fugaz_one_font"
+            android:text="@string/connection_name"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
     <ImageView
-        android:id = "@+id/tv_start"
-        android:layout_width = "@dimen/_48sdp"
-        android:layout_height = "@dimen/_48sdp"
-        android:gravity = "center"
-        android:src = "@drawable/ic_play"
-        android:textColor = "@color/white"
-        app:layout_constraintBottom_toBottomOf = "parent"
-        app:layout_constraintEnd_toEndOf = "parent"
-        app:layout_constraintStart_toStartOf = "parent"
-        app:layout_constraintWidth_percent = ".5" />
+        android:id="@+id/tv_start"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="@dimen/_48sdp"
+        android:gravity="center"
+        android:src="@drawable/ic_play"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ll_connection_name"
+        app:layout_constraintVertical_bias="0.654"
+        app:layout_constraintWidth_percent=".5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

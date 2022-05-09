@@ -80,36 +80,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         return dataList.size();
     }
 
-    /**
-     * The type Data view holder.
-     */
     class DataViewHolder extends RecyclerView.ViewHolder {
-        /**
-         * The V date.
-         */
         TextView vDate;
-        /**
-         * The V wifi.
-         */
         TextView vWifi;
-        /**
-         * The V mobile.
-         */
         TextView vMobile;
-        /**
-         * The V total.
-         */
         TextView vTotal;
-        /**
-         * The Card view.
-         */
         ConstraintLayout card_view;
 
-        /**
-         * Instantiates a new Data view holder.
-         *
-         * @param itemView the item view
-         */
         public DataViewHolder(View itemView) {
             super(itemView);
             vDate = itemView.findViewById(R.id.id_date);

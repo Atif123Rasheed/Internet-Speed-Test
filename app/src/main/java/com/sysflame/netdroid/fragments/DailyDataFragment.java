@@ -19,6 +19,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.sysflame.netdroid.R;
 import com.sysflame.netdroid.adapters.DataAdapter;
 import com.sysflame.netdroid.models.DataInfo;
@@ -67,7 +72,8 @@ public class DailyDataFragment extends Fragment {
 	private TextView tvPing;
 	private TextView tvDownload;
 	private TextView tvUpload;
-	private FrameLayout fLAds;
+	//private FrameLayout fLAds;
+	private AdView mAdView;
 
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container,
@@ -77,16 +83,27 @@ public class DailyDataFragment extends Fragment {
 		tvPing = rootView.findViewById (R.id.tv_ping);
 		tvDownload = rootView.findViewById (R.id.tv_download);
 		tvUpload = rootView.findViewById (R.id.tv_upload);
-		fLAds = rootView.findViewById (R.id.v_ad_unified);
+		//fLAds = rootView.findViewById (R.id.v_ad_unified);
 		init ();
 		Random random = new Random ();
 		int l = random.nextInt (2);
 		Log.e ("newactvitiy", "newactivity" + l);
+
+		MobileAds.initialize(requireActivity().getApplicationContext(), new OnInitializationCompleteListener() {
+			@Override
+			public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+			}
+		});
+
+		mAdView = rootView.findViewById(R.id.adView);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mAdView.loadAd(adRequest);
 		return rootView;
 	}
 
 	private void init () {
-		fLAds.setVisibility (View.GONE);
+		//fLAds.setVisibility (View.GONE);
 		tvDate.post (() -> {
 			int length = tvDate.getMeasuredWidth ();
 			float angle = 45;

@@ -32,7 +32,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:text="Speed Test"
             android:textColor="#AF4A00"
             android:textSize="@dimen/_16sdp" />
@@ -41,7 +41,7 @@
             android:id="@+id/title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:text="How was Your Experience with us?"
             android:textColor="#828282"
             android:textSize="@dimen/_12sdp" />

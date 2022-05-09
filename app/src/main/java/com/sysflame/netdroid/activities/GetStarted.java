@@ -2,6 +2,7 @@ package com.sysflame.netdroid.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,15 @@ public class GetStarted extends AppCompatActivity {
 
         getStart = findViewById(R.id.get_started);
 
-        getStart.setOnClickListener(view -> startActivity(new Intent(GetStarted.this, HomeActivity.class)));
+       /* getStart.setOnClickListener(view -> startActivity(new Intent(GetStarted.this, HomeActivity.class)));*/
+        getStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (GetStarted.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
 }

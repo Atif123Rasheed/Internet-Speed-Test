@@ -3,26 +3,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintTop_toTopOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/id_titlebar"
+        ads:layout_constraintStart_toStartOf="parent">
+    </com.google.android.gms.ads.AdView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/id_titlebar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkbrown"
-        android:padding="@dimen/_16sdp"
+        android:padding="@dimen/_8sdp"
         android:paddingBottom="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/adView">
 
         <TextView
             android:id="@+id/tv_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="Date"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tv_ping"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,9 +46,9 @@
             android:id="@+id/tv_subdate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_regular"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
-            android:text="(mm/dd/yyyy hh:mm)"
+            android:text="(mm/dd/yyyy HH:mm)"
             android:textColor="@color/textColor2"
             android:textSize="@dimen/_8ssp"
             app:layout_constraintEnd_toEndOf="@id/tv_date"
@@ -46,9 +59,10 @@
             android:id="@+id/tv_ping"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="Ping"
+            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintEnd_toStartOf="@id/tv_download"
@@ -60,7 +74,7 @@
             android:id="@+id/tv_subping"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_regular"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="(ms)"
             android:textColor="@color/textColor2"
@@ -73,9 +87,10 @@
             android:id="@+id/tv_download"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="Download"
+            android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintEnd_toStartOf="@id/tv_upload"
@@ -87,7 +102,7 @@
             android:id="@+id/tv_subdownload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_regular"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="(Mbps)"
             android:textColor="@color/textColor2"
@@ -100,10 +115,11 @@
             android:id="@+id/tv_upload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/fugaz_one"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="Upload"
-                android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_download"
@@ -114,7 +130,7 @@
             android:id="@+id/tv_subupload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_regular"
+            android:fontFamily="@font/fugaz_one_font"
             android:gravity="center"
             android:text="(Mbps)"
             android:textColor="@color/textColor2"
@@ -128,12 +144,11 @@
         android:id="@+id/cardList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/_8sdp"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toTopOf="@id/v_ad_unified"
-        app:layout_constraintTop_toBottomOf="@id/id_titlebar" />
+        app:layout_constraintTop_toBottomOf="@id/id_titlebar"
+        />
 
-    <FrameLayout
+    <!--<FrameLayout
         android:id="@+id/v_ad_unified"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -141,7 +156,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".12"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
