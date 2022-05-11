@@ -83,6 +83,7 @@ public class GetSpeedTestHostsHandler extends Thread {
 		try {
 			URL url = new URL ("https://www.speedtest.net/speedtest-config.php");
 			//URL url = new URL ("https://c.speedtest.net/speedtest-config.php");
+			//URL url = new URL ("http://2.testdebit.info/fichiers/1Mo.dat");
 			InputStream is = url.openStream ();
 			int ptr = 0;
 			StringBuilder buffer = new StringBuilder ();
@@ -111,6 +112,7 @@ public class GetSpeedTestHostsHandler extends Thread {
 		try {
 			URL url = new URL ("https://www.speedtest.net/speedtest-servers-static.php");
 			//URL url = new URL ("https://c.speedtest.net/speedtest-servers-static.php");
+			//URL url = new URL ("http://2.testdebit.info/");
 			InputStream is = url.openStream ();
 			BufferedReader br = new BufferedReader (new InputStreamReader (is));
 			String line;

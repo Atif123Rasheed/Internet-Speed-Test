@@ -3,22 +3,22 @@
     <item>
         <shape android:shape = "oval">
             <gradient
-                android:angle = "45"
+                android:angle = "90"
                 android:endColor = "#AF4A00"
                 android:startColor = "#AF4A00"
                 android:type = "linear" />
 
             <size
-                android:width = "200dp"
-                android:height = "200dp" />
+                android:width = "@dimen/_100sdp"
+                android:height = "@dimen/_100sdp"/>
         </shape>
     </item>
 
     <item
-        android:bottom = "@dimen/_3sdp"
-        android:left = "@dimen/_3sdp"
-        android:right = "@dimen/_3sdp"
-        android:top = "@dimen/_3sdp">
+        android:bottom = "@dimen/_4sdp"
+        android:left = "@dimen/_4sdp"
+        android:right = "@dimen/_4sdp"
+        android:top = "@dimen/_4sdp">
         <shape android:shape = "oval">
             <solid android:color = "#373737" />
         </shape>

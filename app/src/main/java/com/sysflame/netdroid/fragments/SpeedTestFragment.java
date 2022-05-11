@@ -16,25 +16,26 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -44,6 +45,7 @@ import com.sysflame.netdroid.custom_ui.TickProgressBar;
 import com.sysflame.netdroid.models.AdsSpeedTest;
 import com.sysflame.netdroid.utils.ConnectionDetector;
 import com.sysflame.netdroid.utils.GetSpeedTestHostsHandler;
+import com.sysflame.netdroid.utils.Utils;
 import com.sysflame.netdroid.utils.test.HttpDownloadTest;
 import com.sysflame.netdroid.utils.test.HttpUploadTest;
 import com.sysflame.netdroid.utils.test.PingTest;
@@ -60,59 +62,25 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-/**
- * The type Speed test fragment.
- */
 public class SpeedTestFragment extends Fragment {
     private static final String TAG = makeLogTag(SpeedTestFragment.class);
     private final DecimalFormat dec = new DecimalFormat("#.##");
-    /**
-     * The View.
-     */
+
+
+    TextView tvConnectionInformation;
+
     View view;
-    /**
-     * The Position.
-     */
     int position = 0;
-    /**
-     * The Last position.
-     */
     int lastPosition = 0;
-    /**
-     * The Get speed test hosts handler.
-     */
     GetSpeedTestHostsHandler getSpeedTestHostsHandler = null;
-    /**
-     * The Temp black list.
-     */
     HashSet<String> tempBlackList;
-    /**
-     * The Tv blink.
-     */
     TextView tvBlink;
-    /**
-     * The Upload addr.
-     */
     String uploadAddr;
-    /**
-     * The Info.
-     */
     List<String> info;
-    /**
-     * The Distance.
-     */
     double distance;
-    /**
-     * The Is internet present.
-     */
     Boolean isInternetPresent = false;
-    /**
-     * The Cd.
-     */
     ConnectionDetector cd;
-    /**
-     * The M context.
-     */
+
     Context mContext;
     private LineChart lcMeasure;
     private LineDataSet lineDataSet;
@@ -134,6 +102,8 @@ public class SpeedTestFragment extends Fragment {
     private AdsSpeedTest adsSpeedTest;
     private boolean testing = false;
     private AdView mAdView;
+
+    private Button btnTestAgain;
 
     @Nullable
     @Override
@@ -159,11 +129,8 @@ public class SpeedTestFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    /**
-     * Init.
-     */
     public void init() {
-        adsSpeedTest = new AdsSpeedTest(getActivity());
+      /*  adsSpeedTest = new AdsSpeedTest(getActivity());
         adsSpeedTest.initInterstitial();
         adsSpeedTest.getInterstitialAd().setAdListener(new AdListener() {
             @Override
@@ -207,7 +174,7 @@ public class SpeedTestFragment extends Fragment {
                     testSpeed();
                 }
             }
-        });
+        });*/
         sharedPref = getActivity().getSharedPreferences(
                 "setting", Context.MODE_PRIVATE);
         cd = new ConnectionDetector(getActivity());
@@ -226,6 +193,8 @@ public class SpeedTestFragment extends Fragment {
         ivPBDownload = view.findViewById(R.id.iv_download);
         ivPBUpload = view.findViewById(R.id.iv_upload);
         tvPingL = view.findViewById(R.id.tv_ping_label);
+
+        tvConnectionInformation = view.findViewById(R.id.tv_connection_information);
 
         tickProgressMeasure.setMax(100 * 100);
         tvPingL.post(() -> {
@@ -304,13 +273,14 @@ public class SpeedTestFragment extends Fragment {
         getSpeedTestHostsHandler.start();
         defaultValues();
         tvBegin.setOnClickListener(v -> {
-            testing = true;
-            if (adsSpeedTest.getInterstitialAd() != null && adsSpeedTest.getInterstitialAd().isLoaded()) {
+           testing = true;
+            testSpeed();
+            /*if (adsSpeedTest.getInterstitialAd() != null && adsSpeedTest.getInterstitialAd().isLoaded()) {
                 adsSpeedTest.getInterstitialAd().show();
             } else {
-                LOGI(TAG, "d did not load");
+                LOGI(TAG, "ad did not load");
                 testSpeed();
-            }
+            }*/
         });
     }
 
@@ -415,9 +385,9 @@ public class SpeedTestFragment extends Fragment {
                     getActivity().runOnUiThread(() -> {
                         tvBlink.clearAnimation();
                         tvBlink.setVisibility(View.VISIBLE);
-                        //tvBlink.setText(Utils.getWifiName(getContext()));
+                        tvBlink.setText(Utils.getWifiName(getContext()));
                         //tvBlink.setText(String.format(Utils.getWifiName(getContext()), info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
-                        tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+                        //tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
                     });
                     getActivity().runOnUiThread(() -> {
                         tvPing.setText("0");
@@ -714,6 +684,50 @@ public class SpeedTestFragment extends Fragment {
                             }
                         }
                         if (pingTestFinished && downloadTestFinished && uploadTest.isFinished()) {
+
+                            getActivity().runOnUiThread(() -> {
+                               /* HistoryDialog historyDialog = new HistoryDialog(getActivity());
+                                historyDialog.historyResultDialogue();*/
+                                LayoutInflater li = LayoutInflater.from (getActivity());
+                                View view = li.inflate (R.layout.dialog_buttom_result_sheet, null);
+                                Context wrapper = new ContextThemeWrapper(getActivity(), R.style.MyDialogTheme);
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder (
+                                        wrapper);
+                                alertDialogBuilder.setView (view);
+
+                                btnTestAgain = view.findViewById(R.id.btn_testagain);
+
+                                TextView uploadSpeed=view.findViewById(R.id.tv_upload_value);
+                                TextView connectionName = view.findViewById(R.id.tv_connection_information);
+                                connectionName.setText(tvBlink.getText());
+                                TextView downloadSpeed=view.findViewById(R.id.tv_download_value);
+                                TextView downloadUnit=view.findViewById(R.id.downloadUnit);
+                                TextView uploadUnit=view.findViewById(R.id.uploadUnit);
+                                downloadSpeed.setText(tvDownload.getText());
+
+                              uploadSpeed.setText(tvUpload.getText());
+                              downloadUnit.setText(sharedPref.getString("UNIT", "Mbps"));
+                              uploadUnit.setText(sharedPref.getString("UNIT", "Mbps"));
+                                TextView pingSpeed=view.findViewById(R.id.tv_ping_value);
+
+                                pingSpeed.setText(dec.format(pingTest.getInstantRtt()) + "");
+
+                                AlertDialog alertDialog = alertDialogBuilder.create ();
+                                alertDialog.show ();
+                                btnTestAgain.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        testAgain();
+                                        //testSpeed();
+                                       alertDialog.dismiss();
+
+                                    }
+                                });
+
+
+                            });
+
+
                             break;
                         }
                         if (pingTest.isFinished()) {
@@ -802,6 +816,11 @@ public class SpeedTestFragment extends Fragment {
         }).start();
     }
 
+    private void testAgain() {
+        defaultValues();
+        //testSpeed();
+    }
+
 
     private void defaultValues() {
         tickProgressMeasure.setProgress(0);
@@ -866,5 +885,6 @@ public class SpeedTestFragment extends Fragment {
             LOGI("TAG", "onFailure");
         }
     }
+
 
 }

@@ -19,16 +19,14 @@ public class GetStarted extends AppCompatActivity {
         setContentView(R.layout.activity_get_started);
 
         getStart = findViewById(R.id.get_started);
-
-       /* getStart.setOnClickListener(view -> startActivity(new Intent(GetStarted.this, HomeActivity.class)));*/
         getStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent (GetStarted.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
 
     }
-
 }

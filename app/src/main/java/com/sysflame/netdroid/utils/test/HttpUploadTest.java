@@ -1,5 +1,7 @@
 package com.sysflame.netdroid.utils.test;
 
+import android.util.Log;
+
 import java.io.DataOutputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -51,16 +53,18 @@ public class HttpUploadTest extends Thread {
 	}
 
 	private double round (double value, int places) {
-		if (places < 0) throw new IllegalArgumentException ();
-		BigDecimal bd = BigDecimal.valueOf (value);
-		bd = bd.setScale (places, RoundingMode.HALF_UP);
-		return bd.doubleValue ();
+		if (places < 0) throw new IllegalArgumentException();
+		if (value > 0) {
+
+			Log.d("BigDecimalValue", "value: " + value);
+			BigDecimal bd = BigDecimal.valueOf(value);
+			bd = bd.setScale(places, RoundingMode.HALF_UP);
+			return bd.doubleValue();
+		} else {
+			return 0;
+		}
 	}
 
-	/* TODO
-	*NumberFormat format = NumberFormat.getInstance(Locale.GERMAN);
-	*double valueLocal = Objects.requireNonNull(format.parse(places)).intValue();
-	*/
 
 
 
