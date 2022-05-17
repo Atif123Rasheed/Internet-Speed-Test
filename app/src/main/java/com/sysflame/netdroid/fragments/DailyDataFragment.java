@@ -40,30 +40,13 @@ import java.util.Random;
  * The type Daily data fragment.
  */
 public class DailyDataFragment extends Fragment {
-	/**
-	 * The constant MEGABYTE.
-	 */
-	final static String MEGABYTE = " MB", /**
-	 * The Gigabyte.
-	 */
+
+	final static String MEGABYTE = " MB",
 	GIGABYTE = " GB";
-	/**
-	 * The Ad bar.
-	 */
 	FrameLayout adBar;
-	/**
-	 * The Second.
-	 */
 	Handler second;
-	/**
-	 * The Month data.
-	 */
 	List<DataInfo> monthData;
 
-
-	/**
-	 * The Root view.
-	 */
 	View rootView;
 	private DataAdapter dataAdapter;
 	private RecyclerView recList;
@@ -72,7 +55,6 @@ public class DailyDataFragment extends Fragment {
 	private TextView tvPing;
 	private TextView tvDownload;
 	private TextView tvUpload;
-	//private FrameLayout fLAds;
 	private AdView mAdView;
 
 	@Override
@@ -83,7 +65,6 @@ public class DailyDataFragment extends Fragment {
 		tvPing = rootView.findViewById (R.id.tv_ping);
 		tvDownload = rootView.findViewById (R.id.tv_download);
 		tvUpload = rootView.findViewById (R.id.tv_upload);
-		//fLAds = rootView.findViewById (R.id.v_ad_unified);
 		init ();
 		Random random = new Random ();
 		int l = random.nextInt (2);
@@ -103,7 +84,7 @@ public class DailyDataFragment extends Fragment {
 	}
 
 	private void init () {
-		//fLAds.setVisibility (View.GONE);
+
 		tvDate.post (() -> {
 			int length = tvDate.getMeasuredWidth ();
 			float angle = 45;

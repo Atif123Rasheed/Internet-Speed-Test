@@ -34,8 +34,10 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -130,7 +132,7 @@ public class SpeedTestFragment extends Fragment {
     }
 
     public void init() {
-      /*  adsSpeedTest = new AdsSpeedTest(getActivity());
+        adsSpeedTest = new AdsSpeedTest(getActivity());
         adsSpeedTest.initInterstitial();
         adsSpeedTest.getInterstitialAd().setAdListener(new AdListener() {
             @Override
@@ -174,7 +176,7 @@ public class SpeedTestFragment extends Fragment {
                     testSpeed();
                 }
             }
-        });*/
+        });
         sharedPref = getActivity().getSharedPreferences(
                 "setting", Context.MODE_PRIVATE);
         cd = new ConnectionDetector(getActivity());
@@ -273,7 +275,7 @@ public class SpeedTestFragment extends Fragment {
         getSpeedTestHostsHandler.start();
         defaultValues();
         tvBegin.setOnClickListener(v -> {
-           testing = true;
+            testing = true;
             testSpeed();
             /*if (adsSpeedTest.getInterstitialAd() != null && adsSpeedTest.getInterstitialAd().isLoaded()) {
                 adsSpeedTest.getInterstitialAd().show();
@@ -307,7 +309,7 @@ public class SpeedTestFragment extends Fragment {
 
     private void testSpeed() {
         tvBegin.setImageResource(R.drawable.ic_stop);
-       tvBlink.setVisibility(View.VISIBLE);
+        tvBlink.setVisibility(View.VISIBLE);
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(650);
         anim.setStartOffset(20);
@@ -340,9 +342,9 @@ public class SpeedTestFragment extends Fragment {
                         return;
                     try {
                         getActivity().runOnUiThread(() -> {
-                          tvBlink.clearAnimation();
-                          tvBlink.setVisibility(View.GONE);
-                          tvBlink.setText("No Connection...");
+                            tvBlink.clearAnimation();
+                            tvBlink.setVisibility(View.GONE);
+                            tvBlink.setText("No Connection...");
                             tvBegin.setImageResource(R.drawable.ic_play);
                         });
                         getSpeedTestHostsHandler = null;
@@ -385,8 +387,8 @@ public class SpeedTestFragment extends Fragment {
                     getActivity().runOnUiThread(() -> {
                         tvBlink.clearAnimation();
                         tvBlink.setVisibility(View.VISIBLE);
-                        tvBlink.setText(Utils.getWifiName(getContext()));
-                        //tvBlink.setText(String.format(Utils.getWifiName(getContext()), info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+                        //tvBlink.setText(Utils.getWifiName(getContext()));
+                        tvBlink.setText(String.format(Utils.getWifiName(getContext()), info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
                         //tvBlink.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
                     });
                     getActivity().runOnUiThread(() -> {
@@ -688,45 +690,47 @@ public class SpeedTestFragment extends Fragment {
                             getActivity().runOnUiThread(() -> {
                                /* HistoryDialog historyDialog = new HistoryDialog(getActivity());
                                 historyDialog.historyResultDialogue();*/
-                                LayoutInflater li = LayoutInflater.from (getActivity());
-                                View view = li.inflate (R.layout.dialog_buttom_result_sheet, null);
+                                LayoutInflater li = LayoutInflater.from(getActivity());
+                                View view = li.inflate(R.layout.dialog_buttom_result_sheet, null);
                                 Context wrapper = new ContextThemeWrapper(getActivity(), R.style.MyDialogTheme);
-                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder (
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                                         wrapper);
-                                alertDialogBuilder.setView (view);
+                                alertDialogBuilder.setView(view);
 
                                 btnTestAgain = view.findViewById(R.id.btn_testagain);
 
-                                TextView uploadSpeed=view.findViewById(R.id.tv_upload_value);
+                                TextView uploadSpeed = view.findViewById(R.id.tv_upload_value);
                                 TextView connectionName = view.findViewById(R.id.tv_connection_information);
                                 connectionName.setText(tvBlink.getText());
-                                TextView downloadSpeed=view.findViewById(R.id.tv_download_value);
-                                TextView downloadUnit=view.findViewById(R.id.downloadUnit);
-                                TextView uploadUnit=view.findViewById(R.id.uploadUnit);
+                                TextView downloadSpeed = view.findViewById(R.id.tv_download_value);
+                                TextView downloadUnit = view.findViewById(R.id.downloadUnit);
+                                TextView uploadUnit = view.findViewById(R.id.uploadUnit);
                                 downloadSpeed.setText(tvDownload.getText());
 
-                              uploadSpeed.setText(tvUpload.getText());
-                              downloadUnit.setText(sharedPref.getString("UNIT", "Mbps"));
-                              uploadUnit.setText(sharedPref.getString("UNIT", "Mbps"));
-                                TextView pingSpeed=view.findViewById(R.id.tv_ping_value);
+                                uploadSpeed.setText(tvUpload.getText());
+                                downloadUnit.setText(sharedPref.getString("UNIT", "Mbps"));
+                                uploadUnit.setText(sharedPref.getString("UNIT", "Mbps"));
+                                TextView pingSpeed = view.findViewById(R.id.tv_ping_value);
 
                                 pingSpeed.setText(dec.format(pingTest.getInstantRtt()) + "");
 
-                                AlertDialog alertDialog = alertDialogBuilder.create ();
-                                alertDialog.show ();
+                                AlertDialog alertDialog = alertDialogBuilder.create();
+                                alertDialog.show();
                                 btnTestAgain.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         testAgain();
-                                        //testSpeed();
-                                       alertDialog.dismiss();
-
+                                         if (adsSpeedTest.getInterstitialAd() != null && adsSpeedTest.getInterstitialAd().isLoaded()) {
+                                             adsSpeedTest.getInterstitialAd().show();
+                                         } else {
+                                             LOGI(TAG, "ad did not load");
+                                             testAgain();
+                                         }
+                                        alertDialog.dismiss();
                                     }
                                 });
 
-
                             });
-
 
                             break;
                         }
@@ -830,12 +834,6 @@ public class SpeedTestFragment extends Fragment {
         tvBlink.setText("Tap Button to run test");
     }
 
-    /**
-     * Add gradient bitmap.
-     *
-     * @param originalBitmap the original bitmap
-     * @return the bitmap
-     */
     public Bitmap addGradient(Bitmap originalBitmap) {
         int width = originalBitmap.getWidth();
         int height = originalBitmap.getHeight();

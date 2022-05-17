@@ -125,34 +125,6 @@ public class SettingFragment extends Fragment {
         return rootView;
     }
 
-	/*private void loadBanner() {
-
-		mAdView = new AdView (requireActivity().getApplicationContext ());
-		mAdView.setAdUnitId (requireActivity().getResources ().getString (R.string.admob_app_banner));
-		fLAds.addView (mAdView);
-		AdSize adSize = adSize ();
-		mAdView.setAdSize (AdSize.BANNER);
-		AdRequest adRequest =
-				new AdRequest.Builder().build();
-		mAdView.loadAd(adRequest);
-
-	}
-
-	private AdSize adSize() {
-		Display display = getActivity().getWindowManager().getDefaultDisplay();
-		DisplayMetrics outMetrics = new DisplayMetrics();
-		display.getMetrics(outMetrics);
-
-		float widthPixels = outMetrics.widthPixels;
-		float density = outMetrics.density;
-
-		int adWidth = (int) (widthPixels / density);
-
-		// Step 3 - Get adaptive ad size and return for setting on the ad view.
-		return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(getActivity(), adWidth);
-
-	}*/
-
     private void showAlertDialogButtonClickedLanguage() {
         AlertDialog.Builder builder
                 = new AlertDialog.Builder(getContext(), R.style.MyDialogTheme);

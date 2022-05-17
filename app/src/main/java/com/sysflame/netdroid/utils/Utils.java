@@ -6,21 +6,12 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
-/**
- * The type Utils.
- */
 public class Utils {
 	private Utils () {
 		throw new IllegalStateException ("Utility class");
 	}
 
-	/**
-	 * Enable notification.
-	 *
-	 * @param context the context
-	 * @param key     the key
-	 * @param value   the value
-	 */
+
 	public static void EnableNotification (Context context, String key,
 	                                       boolean value) {
 		SharedPreferences preferences = context.getSharedPreferences (
@@ -30,13 +21,6 @@ public class Utils {
 		editor.commit ();
 	}
 
-	/**
-	 * Is enabled notification boolean.
-	 *
-	 * @param context the context
-	 * @param key     the key
-	 * @return the boolean
-	 */
 	public static boolean isEnabledNotification (Context context, String key) {
 		SharedPreferences preferences = context.getSharedPreferences (
 				Constant.SHARED_PREFS, Context.MODE_PRIVATE);

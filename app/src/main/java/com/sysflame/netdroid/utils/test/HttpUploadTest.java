@@ -10,44 +10,16 @@ import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * The type Http upload test.
- */
 public class HttpUploadTest extends Thread {
-	/**
-	 * The Uploaded k byte.
-	 */
+
 	static int uploadedKByte = 0;
-	/**
-	 * The File url.
-	 */
 	public String fileURL = "";
-	/**
-	 * The Upload elapsed time.
-	 */
 	double uploadElapsedTime = 0;
-	/**
-	 * The Finished.
-	 */
 	boolean finished = false;
-	/**
-	 * The Elapsed time.
-	 */
 	double elapsedTime = 0;
-	/**
-	 * The Final upload rate.
-	 */
 	double finalUploadRate = 0.0;
-	/**
-	 * The Start time.
-	 */
 	long startTime;
 
-	/**
-	 * Instantiates a new Http upload test.
-	 *
-	 * @param fileURL the file url
-	 */
 	public HttpUploadTest (String fileURL) {
 		this.fileURL = fileURL;
 	}
@@ -65,23 +37,9 @@ public class HttpUploadTest extends Thread {
 		}
 	}
 
-
-
-
-	/**
-	 * Is finished boolean.
-	 *
-	 * @return the boolean
-	 */
 	public boolean isFinished () {
 		return finished;
 	}
-
-	/**
-	 * Gets instant upload rate.
-	 *
-	 * @return the instant upload rate
-	 */
 	public double getInstantUploadRate () {
 		if (uploadedKByte >= 0) {
 			long now = System.currentTimeMillis ();
@@ -91,12 +49,6 @@ public class HttpUploadTest extends Thread {
 			return 0.0;
 		}
 	}
-
-	/**
-	 * Gets final upload rate.
-	 *
-	 * @return the final upload rate
-	 */
 	public double getFinalUploadRate () {
 		return round (finalUploadRate, 2);
 	}
@@ -130,20 +82,9 @@ public class HttpUploadTest extends Thread {
 	}
 }
 
-/**
- * The type Handler upload.
- */
 class HandlerUpload extends Thread {
-	/**
-	 * The Url.
-	 */
-	URL url;
 
-	/**
-	 * Instantiates a new Handler upload.
-	 *
-	 * @param url the url
-	 */
+	URL url;
 	public HandlerUpload (URL url) {
 		this.url = url;
 	}

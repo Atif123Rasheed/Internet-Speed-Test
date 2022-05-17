@@ -20,7 +20,8 @@
         tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode">
         <activity
             android:name=".activities.GetStarted"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true"

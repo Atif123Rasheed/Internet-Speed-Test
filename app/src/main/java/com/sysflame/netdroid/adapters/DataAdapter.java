@@ -16,25 +16,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * The type Data adapter.
- */
+
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder> {
-    /**
-     * The Data list.
-     */
+
     public List<DataInfo> dataList;
-    /**
-     * The Context.
-     */
     Context context;
 
-    /**
-     * Instantiates a new Data adapter.
-     *
-     * @param context  the context
-     * @param dataList the data list
-     */
     public DataAdapter(Context context, List<DataInfo> dataList) {
         this.dataList = dataList;
         this.context = context;
@@ -65,11 +52,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.DataViewHolder
         }
     }
 
-    /**
-     * Update data.
-     *
-     * @param temp the temp
-     */
     public void updateData(List<DataInfo> temp) {
         this.dataList = temp;
         notifyDataSetChanged();

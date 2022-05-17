@@ -30,6 +30,11 @@
     <string name="share">Share</string>
     <string name="units">MBS</string>
     <string name="connection_name">Connection Name</string>
+    <string name="warning">Exit App</string>
+    <string name="description_dialogue">Are You Sure You Want to Exit</string>
+    <string name="yes">Yes</string>
+    <string name="no">Cancel</string>
+    <string name="are_you_sure_you_want_to_exit">Are you Sure You Want to Exit</string>
 
 
 </resources>

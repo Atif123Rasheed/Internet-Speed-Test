@@ -2,6 +2,7 @@ package com.sysflame.netdroid.activities;
 
 import static com.sysflame.netdroid.utils.LogUtils.LOGE;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,9 +27,6 @@ import com.sysflame.netdroid.fragments.SettingFragment;
 import com.sysflame.netdroid.fragments.SpeedTestFragment;
 import com.sysflame.netdroid.models.AdsSpeedTest;
 
-/**
- * The type Home activity.
- */
 public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView tvSubTitle;
@@ -36,6 +34,8 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPagerAdapter adapter;
     private BottomNavigationView bottomNavigationView;
     private AdsSpeedTest adsSpeedTest;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -120,6 +120,36 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        customExitDialog();
+    }
+
+    private void customExitDialog() {
+
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialogue_onback_press_button);
+        dialog.setCanceledOnTouchOutside(false);
+
+        TextView dialogButtonCancel = (TextView) dialog.findViewById(R.id.btn_no);
+        TextView dialogButtonExit = (TextView) dialog.findViewById(R.id.btn_yes);
+
+        dialogButtonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialogButtonExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+            }
+        });
+        dialog.show();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
     }
@@ -135,33 +165,20 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
-        /**
-         * The Page count.
-         */
+
         final int PAGE_COUNT = 3;
         private final String[] mTabsTitle = {getString(R.string.history), getString(R.string.speed), getString(R.string.settings)};
-
-        /**
-         * Instantiates a new View pager adapter.
-         *
-         * @param fm the fm
-         */
         ViewPagerAdapter(FragmentManager fm) {
             super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
-        /**
-         * Gets tab view.
-         *
-         * @param position the position
-         * @return the tab view
-         */
         public View getTabView(int position) {
             View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.custom_tab, null);
             TextView title = view.findViewById(R.id.title);
             title.setText(mTabsTitle[position]);
             return view;
         }
+
 
 
         @NonNull

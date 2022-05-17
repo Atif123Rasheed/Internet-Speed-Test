@@ -16,24 +16,13 @@ import androidx.core.content.ContextCompat;
 
 import com.sysflame.netdroid.R;
 
-/**
- * The type Rate dialog.
- */
 public class RateDialog {
 	private Activity activity;
 
-	/**
-	 * Instantiates a new Rate dialog.
-	 *
-	 * @param activity the activity
-	 */
 	public RateDialog (Activity activity) {
 		this.activity = activity;
 	}
 
-	/**
-	 * Display rating dialogue.
-	 */
 	public void displayRatingDialogue () {
 		TextView title1;
 		LayoutInflater li = LayoutInflater.from (activity);

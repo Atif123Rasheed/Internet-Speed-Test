@@ -8,72 +8,26 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * The type Get speed test hosts handler.
- */
 public class GetSpeedTestHostsHandler extends Thread {
-	/**
-	 * The Map key.
-	 */
-	HashMap<Integer, String> mapKey = new HashMap<> ();
-	/**
-	 * The Map value.
-	 */
-	HashMap<Integer, List<String>> mapValue = new HashMap<> ();
-	/**
-	 * The Self lat.
-	 */
-	double selfLat = 0.0;
-	/**
-	 * The Self lon.
-	 */
-	double selfLon = 0.0;
-	/**
-	 * The Finished.
-	 */
-	boolean finished = false;
 
-	/**
-	 * Gets map key.
-	 *
-	 * @return the map key
-	 */
+	HashMap<Integer, String> mapKey = new HashMap<> ();
+	HashMap<Integer, List<String>> mapValue = new HashMap<> ();
+	double selfLat = 0.0;
+	double selfLon = 0.0;
+	boolean finished = false;
 	public HashMap<Integer, String> getMapKey () {
 		return mapKey;
 	}
-
-	/**
-	 * Gets map value.
-	 *
-	 * @return the map value
-	 */
 	public HashMap<Integer, List<String>> getMapValue () {
 		return mapValue;
 	}
 
-	/**
-	 * Gets self lat.
-	 *
-	 * @return the self lat
-	 */
 	public double getSelfLat () {
 		return selfLat;
 	}
-
-	/**
-	 * Gets self lon.
-	 *
-	 * @return the self lon
-	 */
 	public double getSelfLon () {
 		return selfLon;
 	}
-
-	/**
-	 * Is finished boolean.
-	 *
-	 * @return the boolean
-	 */
 	public boolean isFinished () {
 		return finished;
 	}

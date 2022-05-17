@@ -53,32 +53,16 @@ public class TickProgressBar extends ProgressBar {
     private Canvas mCenterCanvas;
     private TickProgressBar.OnCenterDraw mOnCenter;
 
-    /**
-     * Instantiates a new Tick progress bar.
-     *
-     * @param context the context
-     */
+
     public TickProgressBar(Context context) {
         this(context, null);
     }
 
-    /**
-     * Instantiates a new Tick progress bar.
-     *
-     * @param context the context
-     * @param attrs   the attrs
-     */
+
     public TickProgressBar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    /**
-     * Instantiates a new Tick progress bar.
-     *
-     * @param context      the context
-     * @param attrs        the attrs
-     * @param defStyleAttr the def style attr
-     */
     public TickProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         @SuppressLint("Recycle") final TypedArray attributes = getContext().obtainStyledAttributes(
@@ -106,11 +90,7 @@ public class TickProgressBar extends ProgressBar {
         mLinePaint.setStrokeWidth(mTickWidth);
     }
 
-    /**
-     * Sets on center draw.
-     *
-     * @param mOnCenter the m on center
-     */
+
     public void setOnCenterDraw(TickProgressBar.OnCenterDraw mOnCenter) {
         this.mOnCenter = mOnCenter;
     }
@@ -192,34 +172,17 @@ public class TickProgressBar extends ProgressBar {
         Log.e("DEMO", "right == " + mArcRectf.right + "   mRadius == " + mRadius * 2);
     }
 
-    /**
-     * Animate progress bar.
-     *
-     * @param progress the progress
-     * @param from     the from
-     * @param to       the to
-     * @param duration the duration
-     */
+
     public void animateProgressBar(TickProgressBar progress, float from, float to, int duration) {
         TickProgressBar.ProgressBarAnimation anim = new TickProgressBar.ProgressBarAnimation(progress, from, to);
         anim.setDuration(duration);
         progress.startAnimation(anim);
     }
 
-    /**
-     * Gets p unit.
-     *
-     * @return the p unit
-     */
     public String getmPUnit() {
         return mPUnit;
     }
 
-    /**
-     * Sets p unit.
-     *
-     * @param mPUnit the m p unit
-     */
     public void setmPUnit(String mPUnit) {
         this.mPUnit = mPUnit;
     }
@@ -242,38 +205,17 @@ public class TickProgressBar extends ProgressBar {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, context.getResources().getDisplayMetrics());
     }
 
-    /**
-     * The interface On center draw.
-     */
     public interface OnCenterDraw {
-        /**
-         * Draw.
-         *
-         * @param canvas      the canvas
-         * @param rectF       the rect f
-         * @param x           the x
-         * @param y           the y
-         * @param storkeWidth the storke width
-         * @param progress    the progress
-         */
+
         void draw(Canvas canvas, RectF rectF, float x, float y, float storkeWidth, int progress);
     }
 
-    /**
-     * The type Progress bar animation.
-     */
     class ProgressBarAnimation extends Animation {
         private TickProgressBar progressBar;
         private float from;
         private float to;
 
-        /**
-         * Instantiates a new Progress bar animation.
-         *
-         * @param progressBar the progress bar
-         * @param from        the from
-         * @param to          the to
-         */
+
         ProgressBarAnimation(TickProgressBar progressBar, float from, float to) {
             super();
             this.progressBar = progressBar;

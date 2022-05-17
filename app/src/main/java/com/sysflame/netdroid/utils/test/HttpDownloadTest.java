@@ -1,5 +1,7 @@
 package com.sysflame.netdroid.utils.test;
 
+import static com.sysflame.netdroid.utils.LogUtils.LOGE;
+
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -7,59 +9,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.sysflame.netdroid.utils.LogUtils.LOGE;
-
-/**
- * The type Http download test.
- */
 public class HttpDownloadTest extends Thread {
-	/**
-	 * The File url.
-	 */
 	public String fileURL = "";
-	/**
-	 * The Start time.
-	 */
 	long startTime = 0;
-	/**
-	 * The End time.
-	 */
 	long endTime = 0;
-	/**
-	 * The Download elapsed time.
-	 */
 	double downloadElapsedTime = 0;
-	/**
-	 * The Downloaded byte.
-	 */
 	int downloadedByte = 0;
-	/**
-	 * The Final download rate.
-	 */
 	double finalDownloadRate = 0.0;
-	/**
-	 * The Finished.
-	 */
 	boolean finished = false;
-	/**
-	 * The Instant download rate.
-	 */
 	double instantDownloadRate = 0;
-	/**
-	 * The Timeout.
-	 */
 	int timeout = 15;
-	/**
-	 * The Http conn.
-	 */
 	HttpURLConnection httpConn = null;
-
-	/**
-	 * Instantiates a new Http download test.
-	 *
-	 * @param fileURL the file url
-	 */
 	public HttpDownloadTest (String fileURL) {
 		this.fileURL = fileURL;
 	}
@@ -71,21 +31,10 @@ public class HttpDownloadTest extends Thread {
 		return bd.doubleValue ();
 	}
 
-	/**
-	 * Gets instant download rate.
-	 *
-	 * @return the instant download rate
-	 */
 	public double getInstantDownloadRate () {
 		return instantDownloadRate;
 	}
 
-	/**
-	 * Sets instant download rate.
-	 *
-	 * @param downloadedByte the downloaded byte
-	 * @param elapsedTime    the elapsed time
-	 */
 	public void setInstantDownloadRate (int downloadedByte, double elapsedTime) {
 		if (downloadedByte >= 0) {
 			this.instantDownloadRate = round (((downloadedByte * 8) / (1000 * 1000)) / elapsedTime, 2);
@@ -94,20 +43,11 @@ public class HttpDownloadTest extends Thread {
 		}
 	}
 
-	/**
-	 * Gets final download rate.
-	 *
-	 * @return the final download rate
-	 */
 	public double getFinalDownloadRate () {
 		return round (finalDownloadRate, 2);
 	}
 
-	/**
-	 * Is finished boolean.
-	 *
-	 * @return the boolean
-	 */
+
 	public boolean isFinished () {
 		return finished;
 	}

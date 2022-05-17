@@ -16,30 +16,20 @@ import com.sysflame.netdroid.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The type Ads speed test.
- */
+
 public class AdsSpeedTest {
 
 	private static final String TAG = makeLogTag (AdsSpeedTest.class);
 	private Activity activity;
-	//private FrameLayout adContainerView;
 	private AdView adView;
 	private InterstitialAd interstitialAd;
 	private List<String> testDevices = new ArrayList<> ();
-	//private ConsentForm form;
 
-	/*
-	 * Instantiates a new Ads speed test.
-	 */
+
+
 	public AdsSpeedTest () {
 	}
 
-	/**
-	 * Instantiates a new Ads speed test.
-	 *
-	 * @param activity the activity
-	 */
 	public AdsSpeedTest (Activity activity) {
 		this.activity = activity;
 		testDevices.add (AdRequest.DEVICE_ID_EMULATOR);
@@ -53,15 +43,6 @@ public class AdsSpeedTest {
 
 
 
-	/**
-	 * Init banner.
-	 */
-	/*public void initBanner () {
-		adContainerView = activity.findViewById (R.id.ad_view_container);
-		AdRequest adRequest = new AdRequest.Builder().build();
-		adView.loadAd(adRequest);
-	}
-*/
 	/**
 	 * Init interstitial.
 	 */
@@ -88,6 +69,7 @@ public class AdsSpeedTest {
 			@Override
 			public void onAdClicked () {
 				LOGI (TAG, "onAdClicked()");
+
 			}
 
 			@Override
@@ -105,9 +87,7 @@ public class AdsSpeedTest {
 		});
 	}
 
-	/**
-	 * Show interstitial.
-	 */
+
 	public void showInterstitial () {
 		if (interstitialAd != null && interstitialAd.isLoaded ()) {
 			interstitialAd.show ();
@@ -116,49 +96,10 @@ public class AdsSpeedTest {
 		}
 	}
 
-	/**
-	 * Pause banner.
-	 */
-	public void pauseBanner () {
-		if (adView != null) {
-			adView.pause ();
-		}
-	}
-
-	/**
-	 * Resume banner.
-	 */
-	public void resumeBanner () {
-		if (adView != null) {
-			adView.resume ();
-		}
-	}
-
-	/**
-	 * Destroy banner.
-	 */
-	public void destroyBanner () {
-		if (adView != null) {
-			adView.destroy ();
-		}
-	}
-
-
-
-	/**
-	 * Gets interstitial ad.
-	 *
-	 * @return the interstitial ad
-	 */
 	public InterstitialAd getInterstitialAd () {
 		return interstitialAd;
 	}
 
-	/**
-	 * Sets interstitial ad.
-	 *
-	 * @param interstitialAd the interstitial ad
-	 */
 	public void setInterstitialAd (InterstitialAd interstitialAd) {
 		this.interstitialAd = interstitialAd;
 	}

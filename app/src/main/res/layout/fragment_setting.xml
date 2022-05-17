@@ -21,22 +21,6 @@
 
     </com.google.android.gms.ads.AdView>
 
-    <!--<FrameLayout
-        android:id="@+id/v_ad_banner"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintTop_toBottomOf="@id/cv_data_rate_units">
-
-    </FrameLayout>-->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_data_rate_units"
         android:layout_width="match_parent"
@@ -188,7 +172,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_share"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
@@ -202,13 +186,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/fugaz_one_font"
+            android:gravity="center_vertical"
             android:padding="8dp"
             android:text="@string/share"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -223,18 +210,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_rate_us"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_share">
+        app:layout_constraintTop_toBottomOf="@id/cl_share"
+        >
 
         <TextView
             android:id="@+id/tv_rate_us_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/fugaz_one_font"
             android:padding="8dp"
             android:text="Rate Us"
@@ -246,6 +235,13 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#333333"
+
+        app:layout_constraintTop_toBottomOf="@+id/cl_rate_us" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

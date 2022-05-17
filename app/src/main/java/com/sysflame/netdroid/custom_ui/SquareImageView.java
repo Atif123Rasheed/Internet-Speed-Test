@@ -10,32 +10,15 @@ import android.widget.ImageView;
  */
 @SuppressLint("AppCompatCustomView")
 public class SquareImageView extends ImageView {
-	/**
-	 * Instantiates a new Square image view.
-	 *
-	 * @param context the context
-	 */
+
 	public SquareImageView (Context context) {
 		super (context);
 	}
 
-	/**
-	 * Instantiates a new Square image view.
-	 *
-	 * @param context the context
-	 * @param attrs   the attrs
-	 */
 	public SquareImageView (Context context, AttributeSet attrs) {
 		super (context, attrs);
 	}
 
-	/**
-	 * Instantiates a new Square image view.
-	 *
-	 * @param context  the context
-	 * @param attrs    the attrs
-	 * @param defStyle the def style
-	 */
 	public SquareImageView (Context context, AttributeSet attrs, int defStyle) {
 		super (context, attrs, defStyle);
 	}

@@ -125,12 +125,12 @@
             android:textColor = "@color/white" />
 
         <TextView
-            style = "@style/UnitTextStyle"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            android:alpha = ".5"
-            android:text = "MS"
-            android:textColor = "@color/white" />
+            android:id = "@+id/tv_ping_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha=".5"
+            android:text="MS"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <LinearLayout
